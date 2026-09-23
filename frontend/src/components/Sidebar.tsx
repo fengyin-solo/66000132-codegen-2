@@ -1,5 +1,5 @@
 import { useDesignStore } from '../store/design'
-import { THEMES } from '../themes/palettes'
+import PalettePanel from './PalettePanel'
 import type { PatternType } from '../types'
 
 const PATTERNS: { value: PatternType; label: string }[] = [
@@ -31,20 +31,7 @@ export default function Sidebar() {
       </div>
 
       {/* Theme */}
-      <div>
-        <label className="text-xs text-gray-400 block mb-1">颜色主题</label>
-        <div className="grid grid-cols-2 gap-2">
-          {THEMES.map(t => (
-            <button key={t.id} onClick={() => store.setTheme(t.id)}
-              className="flex items-center gap-1 px-2 py-1 rounded text-xs bg-gray-700 hover:bg-gray-600">
-              <div className="flex">{t.colors.map((c,i) => (
-                <div key={i} style={{background:c}} className="w-3 h-3 rounded-full" />
-              ))}</div>
-              <span>{t.name}</span>
-            </button>
-          ))}
-        </div>
-      </div>
+      <PalettePanel />
 
       {/* Seed */}
       <div>

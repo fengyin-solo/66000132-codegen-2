@@ -19,3 +19,6 @@ export interface ColorTheme {
   name: string
   colors: string[]
 }
+
+/** 画面背景模式：深色 / 浅色，用于预览色板落在不同底色上的效果 */
+export type BgMode = 'dark' | 'light'
